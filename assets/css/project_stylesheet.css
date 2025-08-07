@@ -526,3 +526,14 @@ h3.results {
 .container {
     text-align: center;
 }
+
+.logos {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.logos img {
+    height: 40px;
+    margin: 0 1rem;
+    vertical-align: middle;
+}
