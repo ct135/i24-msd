@@ -7,7 +7,7 @@
   <title>
     Noise-Aware Generative Microscopic Traffic Simulation
   </title>
-  <meta content="RFC" property="og:title" />
+  <meta content="I24-MSD" property="og:title" />
   <meta content="Accurately modeling individual vehicle behavior in microscopic traffic simulation remains a key challenge in intelligent transportation systems, as it requires vehicles to realistically generate and respond to complex traffic phenomena such as phantom traffic jams. While traditional human driver simulation models like the Intelligent Driver Model offer computational tractability, they do so by abstracting away the very complexity that defines human driving. On the other hand, recent advances in infrastructure-mounted camera-based roadway sensing have enabled the extraction of vehicle trajectory data, presenting an opportunity to shift toward generative, agent-based models that learn to reproduce driving behaviors directly from data. Yet, a major bottleneck remains: most existing datasets are either overly sanitized or lack standardization, failing to reflect the noisy, imperfect nature of real-world sensing. Unlike data from vehicle-mounted sensors—which can mitigate sensing artifacts like occlusion through overlapping fields of view and sensor fusion— infrastructure-based sensors surface a messier, more practical view of challenges that traffic engineers face every day. To this end, we present the I-24 MOTION Scenario Dataset (I24-MSD)—a standardized, curated dataset designed to preserve a realistic level of sensor imperfection, embracing these errors as part of the learning problem rather than an obstacle to overcome purely from preprocessing. Drawing from noise-aware learning strategies in computer vision, we further adapt existing generative models in the autonomous driving community for I24-MSD with noise-aware loss functions. Our results show that such models outperform traditional baselines in terms of simulation realism." name="description" property="og:description" />
   <meta content="https://ct135.github.io/i24-msd/" property="og:url" />
   <meta name="keywords" content="Intelligent Transportation Systems; Imitation Learning; I24-MSD">
@@ -40,13 +40,13 @@
           <a href="https://www.linkedin.com/in/catherine-tang-76699a193" target="_blank">Catherine Tang</a><sup>1</sup>
         </li>
         <li>
-          <a href="https://research.nvidia.com/person/pavlo-molchanov/" target="_blank">Junyi Ji</a><sup>2</sup>
+          <a href="https://www.jijunyi.com/" target="_blank">Junyi Ji</a><sup>2</sup>
         </li>
         <li>
-          <a href="http://www.cs.cmu.edu/~kkitani/" target="_blank">Jonah Philion</a><sup>3</sup>
+          <a href="https://www.cs.toronto.edu/~jphilion/" target="_blank">Jonah Philion</a><sup>3</sup>
         </li>
         <li>
-          <a href="https://jankautz.com/" target="_blank">Xue Bin Peng</a><sup>3</sup>
+          <a href="https://xbpeng.github.io/" target="_blank">Xue Bin Peng</a><sup>3</sup>
         </li>
         <li>
           <a href="http://www.wucathy.com/blog/" target="_blank">Cathy Wu</a><sup>1</sup>
@@ -73,29 +73,20 @@
         </li>
       </ul>
       <div class="logos">
-        <img src="assets/images/mit.png" alt="MIT Logo">
-        <img src="assets/images/vanderbilt.svg" alt="Vanderbilt Logo">
-        <img src="assets/images/nvidia.svg" alt="NVIDIA Logo">
+        <img src="assets/media/mit.png" alt="MIT Logo">
+        <img src="assets/media/vanderbilt.svg" alt="Vanderbilt Logo">
+        <img src="assets/media/nvidia.svg" alt="NVIDIA Logo">
       </div>
-      <ul class="authors venue">
-        <li>
-          CVPR 2022 (Oral)
-        </li>
-      </ul>
+
       <ul class="authors links">
         <li>
-          <a href="https://arxiv.org/pdf/2112.01524.pdf" target="_blank">
+          <a href="https://arxiv.org/abs/2508.07453" target="_blank">
             <button class="btn"><i class="fa fa-file-pdf"></i> Paper</button>
           </a>
         </li>
         <li>
-          <a href="https://youtu.be/wpObDXcYueo" target="_blank">
-            <button class="btn"><i class="fab fa-youtube"></i> Video</button>
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/NVlabs/GLAMR" target="_blank">
-            <button class="btn"><i class="fab fa-github"></i> Code</button>
+          <a href="https://doi.org/10.7910/DVN/DQOWQI" target="_blank">
+            <button class="btn"><i class="fa fa-database"></i> Data</button>
           </a>
         </li>
       </ul>
@@ -103,18 +94,16 @@
   </div>
 
   <div class="n-article">
-    <div class="n-page video">
+    <!-- <div class="n-page video">
       <video class="centered shadow" width="100%" autoplay muted loop playsinline>
-        <!-- t=0.001 is a hack to make iPhone show video thumbnail -->
         <source src="assets/media/glamr_teaser.mp4#t=0.001" type="video/mp4" />
       </video>
       <div class="videocaption" style="margin-bottom: 1rem">
         <div>
-          GLAMR (Left) recovers human meshes in consistent <strong>global</strong> coordinates from videos captured by <strong>dynamic cameras</strong> and <strong>infills</strong> missing poses (transparent) due to various
-          occlusions (obstruction, missed detection, outside field of view), while standard human mesh recovery methods (Right) fail to do so.
+          Description of key contribution/visual from the work
         </div>   
       </div>
-    </div>
+    </div> -->
 
     <h2 id="abstract">
       Abstract
@@ -123,61 +112,64 @@
       Accurately modeling individual vehicle behavior in microscopic traffic simulation remains a key challenge in intelligent transportation systems, as it requires vehicles to realistically generate and respond to complex traffic phenomena such as phantom traffic jams. While traditional human driver simulation models like the Intelligent Driver Model offer computational tractability, they do so by abstracting away the very complexity that defines human driving. On the other hand, recent advances in infrastructure-mounted camera-based roadway sensing have enabled the extraction of vehicle trajectory data, presenting an opportunity to shift toward generative, agent-based models that learn to reproduce driving behaviors directly from data. Yet, a major bottleneck remains: most existing datasets are either overly sanitized or lack standardization, failing to reflect the noisy, imperfect nature of real-world sensing. Unlike data from vehicle-mounted sensors—which can mitigate sensing artifacts like occlusion through overlapping fields of view and sensor fusion— infrastructure-based sensors surface a messier, more practical view of challenges that traffic engineers face every day. To this end, we present the I-24 MOTION Scenario Dataset (I24-MSD)—a standardized, curated dataset designed to preserve a realistic level of sensor imperfection, embracing these errors as part of the learning problem rather than an obstacle to overcome purely from preprocessing. Drawing from noise-aware learning strategies in computer vision, we further adapt existing generative models in the autonomous driving community for I24-MSD with noise-aware loss functions. Our results show that such models outperform traditional baselines in terms of simulation realism.
     </p>
 
-    <h2 id="results">
-      Results
-    </h2>
-    <h3 class="results" id="sample">
-      Generative Motion Infilling with Multiple Samples
-    </h3>
-    <video class="centered shadow" width="100%" autoplay muted loop playsinline>
-      <!-- t=0.001 is a hack to make iPhone show video thumbnail -->
-      <source src="assets/media/glamr_sample.mp4#t=0.001" type="video/mp4" />
-    </video>
-    <div class="videocaption">
-      <div>GLAMR uses generative motion infiller to infill multiple plausible motions for invisible people.</div>
-    </div>
-
-    <h3 class="results">
-      3DPW Sequences
-    </h3>
-    <video class="centered shadow video_without_cap" width="100%" autoplay muted loop playsinline>
-      <!-- t=0.001 is a hack to make iPhone show video thumbnail -->
-      <source src="assets/media/glamr_res1.mp4#t=0.001" type="video/mp4" />
-    </video>
-    <video class="centered shadow video_without_cap" width="100%" autoplay muted loop playsinline>
-      <!-- t=0.001 is a hack to make iPhone show video thumbnail -->
-      <source src="assets/media/glamr_res2.mp4#t=0.001" type="video/mp4" />
-    </video>
-    <video class="centered shadow video_without_cap" width="100%" autoplay muted loop playsinline>
-      <!-- t=0.001 is a hack to make iPhone show video thumbnail -->
-      <source src="assets/media/glamr_res3.mp4#t=0.001" type="video/mp4" />
-    </video>
-    
-    
-    <h2>
-      Narrated Results Video
-    </h2>
-    <div class="video_wrapper shadow">
-      <iframe width="705" height="397" border-style=none src="https://www.youtube.com/embed/wpObDXcYueo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-
     <h2>
       Overview
     </h2>
-    <img class="figure" src="assets/media/glamr_overview.png" alt="GLAMR Overview">
+    <p>Existing human driver models are simplified ODEs that neglect the interactions between vehicles (except the leading vehicle), roadway structure, and signage. With greater availability of data, we revisit data-driven approaches. We propose approaching the microscopic traffic simulation problem with generative modeling.</p>
+    <img class="figure" src="assets/media/baseline_model_comparison.png" alt="Comparison of ODE Baseline and Generative Models">
+    <p>We see similarities between the microscopic traffic simulation problem and the autonomous vehicle traffic simulation problem of simulating the behavior of human drivers around the autonomous vehicle to help plan ego vehicle motion. Generative modeling has already been applied to tackle this problem within the AV space, enabled by data made available in well-formatted benchmarks. A key difference between the AV problem and microscopic traffic simulation, where infrastructure-based sensors deployed across larger stretches of highway is the presence of noise. There are many sources of noise from occlusion, jittering, etc. that makes including an error a necessary consideration and requires us to consider it as part of the problem.</p>
+    <img class="figure" src="assets/media/i24_testbed.png" alt="I24 Testbed">
+    <p>A key difference between the AV problem and microscopic traffic simulation is the presence of noise in data gathered from infrastructure-based sensors deployed across larger stretches. There are many sources of noise from occlusion, jittering, etc. that makes including an error a necessary consideration and requires us to consider it as part of the problem.</p>
+    <p>We introduce the I-24 Motion Scenario Dataset, designed to provide a realistic representation of traffic scenarios, incorporating the noise and imperfections inherent in real-world data collection. By embracing these challenges, we aim to improve the robustness and applicability of generative models in traffic simulation.</p>
+
+    <h2>I24-Motion Scenario Dataset</h2>
+    <p>The I-24 Motion Dataset (I24-MSD) is a standardized dataset based on Interstate 24 in Nashville, Tennessee, and designed to advance generative microscopic traffic simulation. It contains over 3.29 million vehicle trajectories with a total duration of 40 hours of driving across 6.5 km of interstate, presented as 9-second-long traffic scenarios, each with up to 32 vehicles.</p>
+    <p>Below is a table comparing I24-MSD (referred to as I24) with other datasets. Data for other datasets is compiled directly from Ettinger et al.</p>
+    <img class="figure" src="assets/media/i24_msd_overview.png" alt="I24 MSD Overview">
+
+    <h2 id="results">
+      Results
+    </h2>
+    <p>To tackle our problem, we look at optimizing generative models for microscopic traffic simulation with noise-aware loss functions. We adapted the state-of-the-art SMART model from the AV traffic generative modeling to our problem.</p>
+    <p>Below in Table 2 we summarize the performance evaluation results with standard metrics from AV simulation. We have two baselines, Intelligent Driver Model (IDM) and Constant Velocity, which we compare SMART and SMART with various noise-aware optimization techniques against. We see that SMART variants outperform the two baselines overall and the SMART with cross-entropy and label smoothing performs the best overall.</p>
+    <img class="figure" src="assets/media/i24_msd_results.png" alt="I24 MSD Results">
+    <h3 class="results" id="sample">
+      Sample Results
+    </h3>
+    <video class="centered shadow" width="100%" autoplay muted loop playsinline>
+      <!-- t=0.001 is a hack to make iPhone show video thumbnail -->
+      <source src="assets/media/demo_generative_models.mp4#t=0.001" type="video/mp4" />
+    </video>
+    <div class="videocaption">
+      <div>SMART is able to learn lane changing and lane boundary adherance as seen in these three different scenarios from I24-MSD.</div>
+    </div>
+
+    <h2>
+      Data License Agreement
+    </h2>
+    <ol>
+      <li>You are free to use the data in academic and commercial work.</li>
+      <li>The dataset contains anonymous trajectories. Any activities to re-identify individuals in the dataset or activities that may cause harm to individuals in the dataset are prohibited. You may not use the Dataset in any manner that violates applicable privacy laws.</li>
+      <li>When you use I-24 MOTION Scenario Dataset (I24-MSD) in published academic work, you are required to include the following citation contents. This allows us to aggregate statistics on the data use in publications: V. Jayawardana, C. Tang, J. Ji, J. Philion, X. Peng, C. Wu, Noise-Aware Generative Microscopic Traffic Simulation, 2025</li>
+      <li>Attribution to Original Work: This dataset was made using I-24 MOTION data under the I-24 MOTION license agreement, available at https://github.com/I24-MOTION/I24M_documentation?tab=readme-ov-file#data-use-agreement, and your access and use of such work are governed by the terms and conditions therein. @article{gloudemans202324, title={I-24 MOTION: An instrument for freeway traffic science}, author={Gloudemans, Derek and Wang, Yanbing and Ji, Junyi and Zachar, Gergely and Barbour, William and Hall, Eric and Cebelak, Meredith and Smith, Lee and Work, Daniel B}, journal={Transportation Research Part C: Emerging Technologies}, volume={155}, pages={104311}, year={2023}, publisher={Elsevier} }</li>
+      <li>The data is provided “As is.” We make no other warranties, express or implied, and hereby disclaim all implied warranties, including any warranty of merchantability and warranty of fitness for a particular purpose.</li>
+    </ol>
 
     <h2 id="citation">
       Citation
     </h2>
-    <pre class="bibtex">
-      <code>
-@inproceedings{yuan2022glamr,
-  title={GLAMR: Global Occlusion-Aware Human Mesh Recovery with Dynamic Cameras},
-  author={Yuan, Ye and Iqbal, Umar and Molchanov, Pavlo and Kitani, Kris and Kautz, Jan},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year={2022}
-}
-      </code></pre>
+    <pre>
+ 
+    @misc{jayawardana2025noiseawaregenerativemicroscopictraffic,
+      title={Noise-Aware Generative Microscopic Traffic Simulation}, 
+      author={Vindula Jayawardana and Catherine Tang and Junyi Ji and Jonah Philion and Xue Bin Peng and Cathy Wu},
+      year={2025},
+      eprint={2508.07453},
+      archivePrefix={arXiv},
+      primaryClass={eess.SY},
+      url={https://arxiv.org/abs/2508.07453}, 
+    }
+    </pre>
 
       <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
         <tr>
