@@ -117,20 +117,20 @@
     </h2>
     <p>Existing human driver models are simplified ODEs that neglect the interactions between vehicles (except the leading vehicle), roadway structure, and signage. With greater availability of data, we revisit data-driven approaches. We propose approaching the microscopic traffic simulation problem with generative modeling.</p>
     <img class="figure" src="assets/media/baseline_model_comparison.png" alt="Comparison of ODE Baseline and Generative Models">
-    <p>We see similarities between the microscopic traffic simulation problem and the autonomous vehicle traffic simulation problem of simulating the behavior of human drivers around the autonomous vehicle to help plan ego vehicle motion. Generative modeling has already been applied to tackle this problem within the AV space, enabled by data made available in well-formatted benchmarks. A key difference between the AV problem and microscopic traffic simulation, where infrastructure-based sensors deployed across larger stretches of highway is the presence of noise. There are many sources of noise from occlusion, jittering, etc. that makes including an error a necessary consideration and requires us to consider it as part of the problem.</p>
+    <p>Generative modeling has already been applied to tackle this problem within a similar problem space of autonomous vehicle traffic simulation, where modeling is focused on the human drivers around the AV to help plan motion. These advancements in generative modeling are enabled by data made available in well-formatted benchmarks. </p>
     <img class="figure" src="assets/media/i24_testbed.png" alt="I24 Testbed">
-    <p>A key difference between the AV problem and microscopic traffic simulation is the presence of noise in data gathered from infrastructure-based sensors deployed across larger stretches. There are many sources of noise from occlusion, jittering, etc. that makes including an error a necessary consideration and requires us to consider it as part of the problem.</p>
-    <p>We introduce the I-24 Motion Scenario Dataset, designed to provide a realistic representation of traffic scenarios, incorporating the noise and imperfections inherent in real-world data collection. By embracing these challenges, we aim to improve the robustness and applicability of generative models in traffic simulation.</p>
+    <p>However, a key difference between the AV problem and microscopic traffic simulation is the presence of noise in data gathered from infrastructure-based sensors deployed across larger stretches of highway. There are many sources of noise from occlusion, jittering, etc. that makes considering error a necessary part of the problem formulation.</p>
+    <p>We introduce the I-24 Motion Scenario Dataset, a structured set of traffic scenarios created based on human driving data, incorporating the noise and imperfections inherent in real-world data collection. By embracing these challenges, we aim to improve the robustness and applicability of generative models in traffic simulation.</p>
 
     <h2>I24-Motion Scenario Dataset</h2>
     <p>The I-24 Motion Dataset (I24-MSD) is a standardized dataset based on Interstate 24 in Nashville, Tennessee, and designed to advance generative microscopic traffic simulation. It contains over 3.29 million vehicle trajectories with a total duration of 40 hours of driving across 6.5 km of interstate, presented as 9-second-long traffic scenarios, each with up to 32 vehicles.</p>
-    <p>Below is a table comparing I24-MSD (referred to as I24) with other datasets. Data for other datasets is compiled directly from Ettinger et al.</p>
+    <p>Below, Table 1 compares I24-MSD (referred to as I24) with other datasets. Data for other datasets is compiled directly from Ettinger et al.</p>
     <img class="figure" src="assets/media/i24_msd_overview.png" alt="I24 MSD Overview">
 
     <h2 id="results">
       Results
     </h2>
-    <p>To tackle our problem, we look at optimizing generative models for microscopic traffic simulation with noise-aware loss functions. We adapted the state-of-the-art SMART model from the AV traffic generative modeling to our problem.</p>
+    <p>To tackle our problem, we look at optimizing generative models for microscopic traffic simulation with noise-aware loss functions. We adapted the state-of-the-art SMART model from the AV traffic generative modeling problem to ours.</p>
     <p>Below in Table 2 we summarize the performance evaluation results with standard metrics from AV simulation. We have two baselines, Intelligent Driver Model (IDM) and Constant Velocity, which we compare SMART and SMART with various noise-aware optimization techniques against. We see that SMART variants outperform the two baselines overall and the SMART with cross-entropy and label smoothing performs the best overall.</p>
     <img class="figure" src="assets/media/i24_msd_results.png" alt="I24 MSD Results">
     <h3 class="results" id="sample">
