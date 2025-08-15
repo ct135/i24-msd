@@ -8,7 +8,9 @@
     Noise-Aware Generative Microscopic Traffic Simulation
   </title>
   <meta content="I24-MSD" property="og:title" />
-  <meta content="Accurately modeling individual vehicle behavior in microscopic traffic simulation remains a key challenge in intelligent transportation systems, as it requires vehicles to realistically generate and respond to complex traffic phenomena such as phantom traffic jams. While traditional human driver simulation models like the Intelligent Driver Model offer computational tractability, they do so by abstracting away the very complexity that defines human driving. On the other hand, recent advances in infrastructure-mounted camera-based roadway sensing have enabled the extraction of vehicle trajectory data, presenting an opportunity to shift toward generative, agent-based models that learn to reproduce driving behaviors directly from data. Yet, a major bottleneck remains: most existing datasets are either overly sanitized or lack standardization, failing to reflect the noisy, imperfect nature of real-world sensing. Unlike data from vehicle-mounted sensors—which can mitigate sensing artifacts like occlusion through overlapping fields of view and sensor fusion— infrastructure-based sensors surface a messier, more practical view of challenges that traffic engineers face every day. To this end, we present the I-24 MOTION Scenario Dataset (I24-MSD)—a standardized, curated dataset designed to preserve a realistic level of sensor imperfection, embracing these errors as part of the learning problem rather than an obstacle to overcome purely from preprocessing. Drawing from noise-aware learning strategies in computer vision, we further adapt existing generative models in the autonomous driving community for I24-MSD with noise-aware loss functions. Our results show that such models outperform traditional baselines in terms of simulation realism." name="description" property="og:description" />
+  <meta
+    content="Accurately modeling individual vehicle behavior in microscopic traffic simulation remains a key challenge in intelligent transportation systems, as it requires vehicles to realistically generate and respond to complex traffic phenomena such as phantom traffic jams. While traditional human driver simulation models like the Intelligent Driver Model offer computational tractability, they do so by abstracting away the very complexity that defines human driving. On the other hand, recent advances in infrastructure-mounted camera-based roadway sensing have enabled the extraction of vehicle trajectory data, presenting an opportunity to shift toward generative, agent-based models that learn to reproduce driving behaviors directly from data. Yet, a major bottleneck remains: most existing datasets are either overly sanitized or lack standardization, failing to reflect the noisy, imperfect nature of real-world sensing. Unlike data from vehicle-mounted sensors—which can mitigate sensing artifacts like occlusion through overlapping fields of view and sensor fusion— infrastructure-based sensors surface a messier, more practical view of challenges that traffic engineers face every day. To this end, we present the I-24 MOTION Scenario Dataset (I24-MSD)—a standardized, curated dataset designed to preserve a realistic level of sensor imperfection, embracing these errors as part of the learning problem rather than an obstacle to overcome purely from preprocessing. Drawing from noise-aware learning strategies in computer vision, we further adapt existing generative models in the autonomous driving community for I24-MSD with noise-aware loss functions. Our results show that such models outperform traditional baselines in terms of simulation realism."
+    name="description" property="og:description" />
   <meta content="https://ct135.github.io/i24-msd/" property="og:url" />
   <meta name="keywords" content="Intelligent Transportation Systems; Imitation Learning; I24-MSD">
 
@@ -92,7 +94,7 @@
         </li>
         <li>
           <a href="https://doi.org/10.7910/DVN/DQOWQI" target="_blank">
-            <button class="btn"><i class="fa fa-database"></i> Data</button>
+            <button class="btn"><i class="fa fa-database"></i> I-24 MOTION Scenario Dataset</button>
           </a>
         </li>
       </ul>
@@ -100,82 +102,134 @@
   </div>
 
   <div class="n-article">
-    <!-- <div class="n-page video">
-      <video class="centered shadow" width="100%" autoplay muted loop playsinline>
-        <source src="assets/media/glamr_teaser.mp4#t=0.001" type="video/mp4" />
-      </video>
-      <div class="videocaption" style="margin-bottom: 1rem">
-        <div>
-          Description of key contribution/visual from the work
-        </div>   
-      </div>
-    </div> -->
 
     <h2 id="abstract">
       Abstract
     </h2>
     <p>
-      Accurately modeling individual vehicle behavior in microscopic traffic simulation remains a key challenge in intelligent transportation systems, as it requires vehicles to realistically generate and respond to complex traffic phenomena such as phantom traffic jams. While traditional human driver simulation models like the Intelligent Driver Model offer computational tractability, they do so by abstracting away the very complexity that defines human driving. On the other hand, recent advances in infrastructure-mounted camera-based roadway sensing have enabled the extraction of vehicle trajectory data, presenting an opportunity to shift toward generative, agent-based models that learn to reproduce driving behaviors directly from data. Yet, a major bottleneck remains: most existing datasets are either overly sanitized or lack standardization, failing to reflect the noisy, imperfect nature of real-world sensing. Unlike data from vehicle-mounted sensors—which can mitigate sensing artifacts like occlusion through overlapping fields of view and sensor fusion— infrastructure-based sensors surface a messier, more practical view of challenges that traffic engineers face every day. To this end, we present the I-24 MOTION Scenario Dataset (I24-MSD)—a standardized, curated dataset designed to preserve a realistic level of sensor imperfection, embracing these errors as part of the learning problem rather than an obstacle to overcome purely from preprocessing. Drawing from noise-aware learning strategies in computer vision, we further adapt existing generative models in the autonomous driving community for I24-MSD with noise-aware loss functions. Our results show that such models outperform traditional baselines in terms of simulation realism.
+      Accurately modeling individual vehicle behavior in microscopic traffic simulation remains a key challenge in
+      intelligent transportation systems, as it requires vehicles to realistically generate and respond to complex
+      traffic phenomena such as phantom traffic jams. While traditional human driver simulation models like the
+      Intelligent Driver Model offer computational tractability, they do so by abstracting away the very complexity that
+      defines human driving. On the other hand, recent advances in infrastructure-mounted camera-based roadway sensing
+      have enabled the extraction of vehicle trajectory data, presenting an opportunity to shift toward generative,
+      agent-based models that learn to reproduce driving behaviors directly from data. Yet, a major bottleneck remains:
+      most existing datasets are either overly sanitized or lack standardization, failing to reflect the noisy,
+      imperfect nature of real-world sensing. Unlike data from vehicle-mounted sensors—which can mitigate sensing
+      artifacts like occlusion through overlapping fields of view and sensor fusion— infrastructure-based sensors
+      surface a messier, more practical view of challenges that traffic engineers face every day. To this end, we
+      present the I-24 MOTION Scenario Dataset (I24-MSD)—a standardized, curated dataset designed to preserve a
+      realistic level of sensor imperfection, embracing these errors as part of the learning problem rather than an
+      obstacle to overcome purely from preprocessing. Drawing from noise-aware learning strategies in computer vision,
+      we further adapt existing generative models in the autonomous driving community for I24-MSD with noise-aware loss
+      functions. Our results show that such models outperform traditional baselines in terms of simulation realism.
     </p>
 
     <h2>
-      Overview
+      Motivation
     </h2>
-    <p>Existing human driver models are simplified ODEs that neglect the interactions between vehicles (except the leading vehicle), roadway structure, and signage. With greater availability of data, we revisit data-driven approaches. We propose approaching the microscopic traffic simulation problem with generative modeling.</p>
-    <img class="figure" src="assets/media/baseline_model_comparison.png" alt="Comparison of ODE Baseline and Generative Models">
-    <p>Generative modeling has already been applied to tackle this problem within a similar problem space of autonomous vehicle traffic simulation, where modeling is focused on the human drivers around the AV to help plan motion. These advancements in generative modeling are enabled by data made available in well-formatted benchmarks. </p>
-    <img class="figure" src="assets/media/i24_testbed.png" alt="I24 Testbed">
-    <p>However, a key difference between the AV problem and microscopic traffic simulation is the presence of noise in data gathered from infrastructure-based sensors deployed across larger stretches of highway. There are many sources of noise from occlusion, jittering, etc. that makes considering error a necessary part of the problem formulation.</p>
-    <p>We introduce the I-24 Motion Scenario Dataset, a structured set of traffic scenarios created based on human driving data, incorporating the noise and imperfections inherent in real-world data collection. By embracing these challenges, we aim to improve the robustness and applicability of generative models in traffic simulation.</p>
+    <p>Existing human driver models used in microscopic traffic simulation are often simplified ODEs that neglect the interactions between vehicles (except the
+      leading vehicle), roadway structure, and signage. With greater availability of driving data collected through roadway sensing and high fidelity road maps, we revisit the modeling of microscopic traffic simulations from a data-driven generative modeling
+      perspective. </p>
+    <img class="figure" src="assets/media/baseline_model_comparison.png"
+      alt="Comparison of ODE Baseline and Generative Models">
+    <p>We take inspirations from autonmous driving community where generative modeling has already been applied to simulate traffic scenarios (e.g., <a href="https://waymo.com/open/challenges/2024/sim-agents/"> Waymo Sim Agent</a>). 
+      However, unlike in autonomous driving, generative microscopic traffic simulations often need to deal with noisy driving data collected through pole mounted cameras on the sides of the roadways. Such noise arises from many sources including from occlusion, jittering, etc. that makes accounting for them a necessary part of the problem
+      formulation.</p>
+    <p>In light of this, we present the I-24 Motion Scenario Dataset (I24 MSD)—a structured collection of traffic scenarios derived from human driving data on Interstate 24 in Nashville, Tennessee. The dataset reflects the natural noise and imperfections inherent in real-world data collection, 
+      yet has undergone targeted post-processing steps that traffic engineers are most likely to apply in practice. 
+      These steps balance improving data quality with the practical constraints of available resources and expertise, leaving a realistic level of residual noise.</p>
 
-    <h2>I24-Motion Scenario Dataset</h2>
-    <p>The I-24 Motion Dataset (I24-MSD) is a standardized dataset based on Interstate 24 in Nashville, Tennessee, and designed to advance generative microscopic traffic simulation. It contains over 3.29 million vehicle trajectories with a total duration of 40 hours of driving across 6.5 km of interstate, presented as 9-second-long traffic scenarios, each with up to 32 vehicles.</p>
-    <p>Below, Table 1 compares I24-MSD (referred to as I24) with other datasets. Data for other datasets is compiled directly from Ettinger et al.</p>
-    <img class="figure" src="assets/media/i24_msd_overview.png" alt="I24 MSD Overview">
+    <h2>I24-Motion Scenario Dataset (I24-MSD)</h2>
+    <img class="figure" src="assets/media/i24_testbed.png" alt="I24 Testbed">
+    <div class="figurecaption" style="margin-bottom: 1rem">
+        <div>
+         Illustrations of I-24 MOTION traffic testbed and infrastructure-based multi-camera system used to collect the data presented in I24-MSD. 
+        </div>
+      </div>
+    <p>The I-24 Motion Dataset (I24-MSD) is a standardized dataset based on the largest traffic test bed in the world located in Interstate 24 in Nashville, Tennessee, and
+      designed to advance generative microscopic traffic simulation. It contains over 3.29 million vehicle trajectories
+      with a total duration of 40 hours of driving across 6.5 km of interstate, presented as 9-second-long traffic
+      scenarios, each with up to 32 vehicles. The scenario-based dataset is derived from <a href="https://i24motion.org/">I24 Motion Dataset</a>. </p>
 
     <h2 id="results">
-      Results
+      How noise in the dataset affects generative modeling?
     </h2>
-    <p>To tackle our problem, we look at optimizing generative models for microscopic traffic simulation with noise-aware loss functions. We adapted the state-of-the-art SMART model from the AV traffic generative modeling problem to ours.</p>
-    <p>Below in Table 2 we summarize the performance evaluation results with standard metrics from AV simulation. We have two baselines, Intelligent Driver Model (IDM) and Constant Velocity, which we compare SMART and SMART with various noise-aware optimization techniques against. We see that SMART variants outperform the two baselines overall and the SMART with cross-entropy and label smoothing performs the best overall.</p>
+    <p>We present preliminary analysis on how noise affect the accuracy of generative models build for microscopic traffic simulations. In light of this, we look at optimizing existing generative models from autonomous driving community for microscopic traffic simulation with
+      noise-aware loss functions. We adapted the state-of-the-art <a href="https://smart-motion.github.io/smart/">SMART</a> model for this purpose.</p>
+    <p>Below in Table 2 we summarize the evaluation results with standard metrics used in <a href="https://waymo.com/open/challenges/2024/sim-agents/"> Waymo Sim Agent</a>. Two baselines are compared with, Intelligent Driver Model (IDM) and Constant Velocity Model. We leverage Cross-entropy (CE), Cross-entropy with label smoothing (CE + LS), Focal loss (Focal), Symmetric cross-entropy (SCE) as the loss functions.
+</p>
     <img class="figure" src="assets/media/i24_msd_results.png" alt="I24 MSD Results">
-    <h3 class="results" id="sample">
-      Sample Results
-    </h3>
-    <video class="centered shadow" width="100%" autoplay muted loop playsinline>
+
+    <video class="centered" width="100%" autoplay muted loop playsinline>
       <!-- t=0.001 is a hack to make iPhone show video thumbnail -->
       <source src="assets/media/demo_generative_models.mp4#t=0.001" type="video/mp4" />
     </video>
-    <div class="videocaption">
-      <div>SMART is able to learn lane changing and lane boundary adherance as seen in these three different scenarios from I24-MSD.</div>
-    </div>
 
     <h2>
       Data License Agreement
     </h2>
     <ol>
       <li>You are free to use the data in academic and commercial work.</li>
-      <li>The dataset contains anonymous trajectories. Any activities to re-identify individuals in the dataset or activities that may cause harm to individuals in the dataset are prohibited. You may not use the Dataset in any manner that violates applicable privacy laws.</li>
-      <li>When you use I-24 MOTION Scenario Dataset (I24-MSD) in published academic work, you are required to include the following citation contents. This allows us to aggregate statistics on the data use in publications: V. Jayawardana, C. Tang, J. Ji, J. Philion, X. Peng, C. Wu, Noise-Aware Generative Microscopic Traffic Simulation, 2025</li>
-      <li>Attribution to Original Work: This dataset was made using I-24 MOTION data under the <a href="https://github.com/I24-MOTION/I24M_documentation?tab=readme-ov-file#data-use-agreement">I-24 MOTION license agreement</a>, and your access and use of such work are governed by the terms and conditions therein.
+      <li>The dataset contains anonymous trajectories. Any activities to re-identify individuals in the dataset or
+        activities that may cause harm to individuals in the dataset are prohibited. You may not use the dataset in any
+        manner that violates applicable privacy laws.</li>
+      <li>When you use I-24 MOTION Scenario Dataset (I24-MSD) in published academic work, you are required to include
+        the following citation contents. This allows us to aggregate statistics on the data use in publications: V.
+        Jayawardana, C. Tang, J. Ji, J. Philion, X. Peng, C. Wu, Noise-Aware Generative Microscopic Traffic Simulation,
+        2025
+        <br><br>
+        The bibtex version of the reference is:
+        <pre>@misc{jayawardana2025genmicrosim,
+          title={Noise-Aware Generative Microscopic Traffic Simulation}, 
+          author={Vindula Jayawardana and Catherine Tang and Junyi Ji and Jonah Philion and Xue Bin Peng and Cathy Wu},
+          year={2025},
+          eprint={2508.07453},
+          archivePrefix={arXiv},
+          primaryClass={eess.SY},
+          url={https://arxiv.org/abs/2508.07453}, 
+        }</pre>
+
+      </li>
+      <li>Attribution to Original Work: This dataset was made using I-24 MOTION data under the <a
+          href="https://github.com/I24-MOTION/I24M_documentation?tab=readme-ov-file#data-use-agreement">I-24 MOTION
+          license agreement</a>, and your access and use of such work are governed by the terms and conditions therein.
+        <br><br>
+
+        The bibtex version of the reference to the original work is:
         <pre>@article{gloudemans202324,
-  title={I-24 MOTION: An instrument for freeway traffic science},
-  author={Gloudemans, Derek and Wang, Yanbing and Ji, Junyi and Zachar, Gergely and Barbour, William and Hall, Eric and Cebelak, Meredith and Smith, Lee and Work, Daniel B},
-  journal={Transportation Research Part C: Emerging Technologies},
-  volume={155},
-  pages={104311},
-  year={2023},
-  publisher={Elsevier}
-}</pre></li>
-      <li>The data is provided “As is.” We make no other warranties, express or implied, and hereby disclaim all implied warranties, including any warranty of merchantability and warranty of fitness for a particular purpose.</li>
+          title={I-24 MOTION: An instrument for freeway traffic science},
+          author={Gloudemans, Derek and Wang, Yanbing and Ji, Junyi and Zachar, Gergely and Barbour, William and Hall, Eric and Cebelak, Meredith and Smith, Lee and Work, Daniel B},
+          journal={Transportation Research Part C: Emerging Technologies},
+          volume={155},
+          pages={104311},
+          year={2023},
+          publisher={Elsevier}
+        }</pre>
+      </li>
+      <li>You are free to share the data and create derivative products as long as you maintain the terms above.</li>
+      <li>The data is provided “As is.” We make no other warranties, express or implied, and hereby disclaim all implied
+        warranties, including any warranty of merchantability and warranty of fitness for a particular purpose.</li>
     </ol>
+
+    <h2>
+      Acknowledgements
+    </h2>
+    <p>
+      The authors would like to thank Cameron Hickert, Zhengbing He, Han Zheng, and Tsung-Han Lin for constructive
+      discussions and their feedback on this work. The authors also
+      thank Derek Gloudemans and Gergely Zachar for providing
+      the data to create the vectorized road maps of Interstate 24
+      and the coordination system transformation code.
+
+    </p>
 
     <h2 id="citation">
       Citation
     </h2>
     <pre>
- 
-    @misc{jayawardana2025noiseawaregenerativemicroscopictraffic,
+
+    @misc{jayawardana2025genmicrosim,
       title={Noise-Aware Generative Microscopic Traffic Simulation}, 
       author={Vindula Jayawardana and Catherine Tang and Junyi Ji and Jonah Philion and Xue Bin Peng and Cathy Wu},
       year={2025},
@@ -186,7 +240,9 @@
     }
     </pre>
 
-      <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    <table
+      style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+      <tbody>
         <tr>
           <td style="padding:0px">
             <br>
@@ -195,7 +251,8 @@
             </p>
           </td>
         </tr>
-      </tbody></table>
+      </tbody>
+    </table>
 
   </div>
 </body>
